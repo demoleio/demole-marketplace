@@ -2,16 +2,23 @@ import { Container, Nav, NavItem } from "react-bootstrap"
 import HeaderBackground from "../assests/img/header-background.png"
 import LogoImg from "../assests/img/logo.png"
 import styled from "styled-components"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
+import BinanceIcon from '../assests/img/icon_binance.png'
+import PolygonIcon from '../assests/img/icon_polygon.png'
+import Avatar from '../assests/img/icon-ava.png'
+import SelectChainPopover from "./SelectChainPopover";
+import { useState } from "react";
+import WalletInfoPopover from "./WalletInfoPopover";
+
 
 const Wrapper = styled.header`
-    background-image: url(${HeaderBackground});
+    background-image: ${props => props.isHome ? `url(${HeaderBackground})` : ""};
     background-size: 135% auto;
     background-repeat: no-repeat;
     background-position: -500px 77%;
     background-color: #0F1323;
-    height: 323px;
+    height: ${props => props.isHome ? "323px" : "120px"};
 `;
 
 const ContainerStyled = styled(Container)`
@@ -70,9 +77,57 @@ const Description = styled.p`
     max-width: 730px;
 `;
 
-function Header() {
+const ChainIcon = styled.div`
+    position: relative;
+    margin-right: 24px;
+    & > img {
+        cursor: pointer;
+    }
+`
+
+const ConnectWalletWrapper = styled.div`
+    display: flex;
+    align-items: center;
+`
+
+const ButtonConnected = styled(Button)`
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #FFB337;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+
+    img {
+        margin-left: 11px;
+    }
+`
+
+const WalletInfo = styled.div`
+    position: relative;
+`
+
+
+function Header(props) {
+    const location = useLocation()
+    const connected = true
+    const [isShowSelectChain, setisShowSelectChain] = useState(false)
+    const [isShowWalletInfo, setisShowWalletInfo] = useState(false)
+
+    const onClickChain = () => {
+        setisShowWalletInfo(false)
+        setisShowSelectChain(!isShowSelectChain)
+    }
+
+    const onClickWallet = () => {
+        setisShowSelectChain(false)
+        setisShowWalletInfo(!isShowWalletInfo)
+    }
+
     return (
-        <Wrapper>
+        <Wrapper isHome={location.pathname === "/"}>
             <ContainerStyled>
                 <Menu>
                     <Link to="/"><Logo src={LogoImg} /></Link>
@@ -83,10 +138,31 @@ function Header() {
                         <NavItemStyled><a href="https://demole.io/faq" target="_blank" rel="noreferrer">FAQ</a></NavItemStyled>
                         <NavItemStyled><a href="https://demole.io" target="_blank" rel="noreferrer">Community</a></NavItemStyled>
                     </Nav>
-                    <ButtonConnect>Connect Wallet</ButtonConnect>
+
+                    <ConnectWalletWrapper>
+
+                        <ChainIcon>
+                            <img onClick={() => onClickChain()} src={BinanceIcon} alt="photos"></img>
+                            {isShowSelectChain && <SelectChainPopover></SelectChainPopover>}
+                        </ChainIcon>
+
+                        {!connected && <ButtonConnect>Connect Wallet</ButtonConnect>}
+
+
+                        {connected && <WalletInfo>
+                            <ButtonConnected onClick={() => onClickWallet()}>
+                                <p>163.92 DMLG</p>
+                                <img src={Avatar} alt="photos"></img>
+                            </ButtonConnected>
+
+                            {isShowWalletInfo && <WalletInfoPopover></WalletInfoPopover>}
+                        </WalletInfo>}
+
+                    </ConnectWalletWrapper>
+
                 </Menu>
 
-                <Description>Welcome to “The Unicorn’s Horn market”, you can find the best things to prepare for you next hunting trip.</Description>
+                {location.pathname === "/" && <Description>Welcome to “The Unicorn’s Horn market”, you can find the best things to prepare for you next hunting trip.</Description>}
             </ContainerStyled>
         </Wrapper>
     )

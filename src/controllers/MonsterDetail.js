@@ -1,11 +1,9 @@
 import Header from "../components/Header";
 import styled from "styled-components";
-import { Container, Row, Col } from "react-bootstrap";
-import MarketInfo from "../components/MarketInfo";
-import FilterPanel from "../components/FilterPanel";
-import ListCharacter from "../components/ListCharacter";
 import Footer from "../components/Footer";
-// import useWallet from "../hooks/useWallet";
+import { Container, Row, Col } from "react-bootstrap";
+import MonsterImage from "../components/MonsterImage";
+import MonsterInfo from "../components/MonsterInfo";
 
 const Wrapper = styled.section`
     background-color: #0F1323;
@@ -20,25 +18,21 @@ const ContainerStyled = styled(Container)`
     }
 `;
 
-function Home() {
-    // const wallet = useWallet()
+export default function MonsterDetail() {
     return (
         <Wrapper>
             <Header />
             <ContainerStyled>
-                <MarketInfo />
                 <Row>
-                    <Col md={3} xs={12}>
-                        <FilterPanel />
+                    <Col md={6} xs={12}>
+                        <MonsterImage></MonsterImage>
                     </Col>
-                    <Col md={9} xs={12}>
-                        <ListCharacter></ListCharacter>
+                    <Col md={6} xs={12}>
+                        <MonsterInfo></MonsterInfo>
                     </Col>
                 </Row>
             </ContainerStyled>
             <Footer></Footer>
         </Wrapper>
-    );
+    )
 }
-
-export default Home;

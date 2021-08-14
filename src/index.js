@@ -9,15 +9,18 @@ import {
 	Route,
 } from "react-router-dom";
 import "nouislider/distribute/nouislider.css";
+import GlobalStyle from "./components/GlobalStyle"
+import MonsterDetail from './controllers/MonsterDetail';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<ToastProvider autoDismiss={true} placement="bottom-center">
+			<GlobalStyle />
 			<Router>
 				<Switch>
-					{/* <Route path="/users">
-						<Users />
-					</Route> */}
+					<Route path="/detail/:id">
+						<MonsterDetail></MonsterDetail>
+					</Route>
 					<Route path="/">
 						<Home />
 					</Route>
