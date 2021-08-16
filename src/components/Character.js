@@ -3,12 +3,17 @@ import styled from "styled-components";
 import dragon from '../assests/img/dragon.png'
 
 const Wrapper = styled.section`
-    height: 423px;
+    height: ${props => props.customHeight ? props.customHeight : "423px"};
     border: 1px solid #292F49;
     border-radius: 20px;
     background-color: transparent;
     margin-top: 24px;
     /* padding: 24px; */
+
+    &:hover {
+        box-shadow: 0px 0px 2px 6px #1A1E30;
+        background-color: #1A1E30;
+    }
 `;
 
 const Head = styled.div`
@@ -52,9 +57,11 @@ const Monster = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
-    height: 300px;
+    width:  ${props => props.customHeight ? "256px" : "300px"};
+    height: ${props => props.customHeight ? "256px" : "300px"};
     margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
 
     & > .dragon {
         margin-left: 70px;
@@ -76,23 +83,24 @@ const Price = styled.div`
 
 `
 
-export default function Character() {
+export default function Character(props) {
+    console.log(props)
     return (
-        <Wrapper>
+        <Wrapper {...props}>
             <Link to="/detail/0">
                 <Head>
                     <p>#1234</p>
                     <p>TREEMAN <span>TREEMAN</span></p>
                 </Head>
 
-                <Monster>
+                <Monster  {...props}>
                     <img className="dragon" src={dragon} alt="photos"></img>
                 </Monster>
 
-                <Price>
+                {!props.notShowPrice && <Price>
                     <p>0.927 BNB</p>
                     <p>$258.97</p>
-                </Price>
+                </Price>}
             </Link>
         </Wrapper>
     )

@@ -9,6 +9,7 @@ import Card from "./Card";
 import { Modal } from "bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import { ModalBody, ModalDialog } from "react-bootstrap";
+import BuyMonsterModal from "./BuyMonsterModal";
 
 const Wrapper = styled.div`
     min-height: 100vh;
@@ -278,11 +279,13 @@ export default function MonsterInfo() {
         },
     ]
 
+    const [isShowBuyMonster, setisShowBuyMonster] = useState(false)
+
     return (
         <Wrapper>
             <WrapperBtn>
                 <ButtonOffer>Make offer</ButtonOffer>
-                <ButtonBuy>Buy Now</ButtonBuy>
+                <ButtonBuy onClick={() => setisShowBuyMonster(true)}>Buy Now</ButtonBuy>
             </WrapperBtn>
 
             <AboutCard header="About">
@@ -457,6 +460,8 @@ export default function MonsterInfo() {
                 </div>
 
             </Table>}
+
+            {isShowBuyMonster && <BuyMonsterModal onClose={() => setisShowBuyMonster(false)}></BuyMonsterModal>}
         </Wrapper>
     )
 }
