@@ -5,7 +5,7 @@ import Character from './Character';
 import Button from "./Button";
 
 const Wrapper = styled(Overlay)`
-    .connect-wallet {
+    .buy-monster {
         background-color: #161824;
         width: 367px;
         height: auto;
@@ -29,7 +29,6 @@ const ButtonBuy = styled(Button)`
     background: #00CEFF;
     color: white;
     font-size: 16px;
-    margin-left: 28px;
     width: 100%;
     margin: 0;
     margin-top: 7px;
@@ -80,7 +79,7 @@ export default function BuyMonsterModal(props) {
         <Wrapper>
             <div className="wrapper">
                 <div className="dark-range" onClick={props.onClose}></div>
-                <div className="connect-wallet">
+                <div className="buy-monster">
                     <div className="head">
                         <p>BUY MONSTER</p>
                         <img src={IconClose} onClick={props.onClose} alt="icon-close"></img>
