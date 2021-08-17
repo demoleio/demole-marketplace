@@ -6,9 +6,6 @@ import VectorDown from '../assests/img/VectorDown.png'
 import { useState } from "react";
 import Table from "./Table";
 import Card from "./Card";
-import { Modal } from "bootstrap";
-import ModalHeader from "react-bootstrap/esm/ModalHeader";
-import { ModalBody, ModalDialog } from "react-bootstrap";
 
 const Wrapper = styled.div`
     min-height: 100vh;

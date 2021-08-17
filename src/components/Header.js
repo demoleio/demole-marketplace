@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
 import BinanceIcon from '../assests/img/icon_binance.png'
-import PolygonIcon from '../assests/img/icon_polygon.png'
+// import PolygonIcon from '../assests/img/icon_polygon.png'
 import Avatar from '../assests/img/icon-ava.png'
 import SelectChainPopover from "./SelectChainPopover";
 import { useState } from "react";

@@ -31,6 +31,7 @@ const Title = styled.div`
         font-size: 72px;
         font-family: "EvilEmpire";
         line-height: 83px;
+        letter-spacing: 5px;
     }
 
     & > span {

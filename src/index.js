@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import "nouislider/distribute/nouislider.css";
 import GlobalStyle from "./components/GlobalStyle"
-import MonsterDetail from './controllers/MonsterDetail';
+import Detail from './controllers/Detail';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -19,7 +19,7 @@ ReactDOM.render(
 			<Router>
 				<Switch>
 					<Route path="/detail/:id">
-						<MonsterDetail></MonsterDetail>
+						<Detail />
 					</Route>
 					<Route path="/">
 						<Home />
