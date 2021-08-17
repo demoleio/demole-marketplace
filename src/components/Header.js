@@ -10,6 +10,8 @@ import Avatar from '../assests/img/icon-ava.png'
 import SelectChainPopover from "./SelectChainPopover";
 import { useState } from "react";
 import WalletInfoPopover from "./WalletInfoPopover";
+import ConnectWalletModal from "./ConnectWalletModal";
+import WrongNetworkModal from "./WrongNetworkModal";
 
 
 const Wrapper = styled.header`
@@ -112,9 +114,10 @@ const WalletInfo = styled.div`
 
 function Header(props) {
     const location = useLocation()
-    const connected = true
+    const connected = false
     const [isShowSelectChain, setisShowSelectChain] = useState(false)
     const [isShowWalletInfo, setisShowWalletInfo] = useState(false)
+    const [isShowConnectWallet, setisShowConnectWallet] = useState(false)
 
     const onClickChain = () => {
         setisShowWalletInfo(false)
@@ -146,7 +149,7 @@ function Header(props) {
                             {isShowSelectChain && <SelectChainPopover></SelectChainPopover>}
                         </ChainIcon>
 
-                        {!connected && <ButtonConnect>Connect Wallet</ButtonConnect>}
+                        {!connected && <ButtonConnect onClick={() => setisShowConnectWallet(true)} >Connect Wallet</ButtonConnect>}
 
 
                         {connected && <WalletInfo>
@@ -164,6 +167,7 @@ function Header(props) {
 
                 {location.pathname === "/" && <Description>Welcome to “The Unicorn’s Horn market”, you can find the best things to prepare for you next hunting trip.</Description>}
             </ContainerStyled>
+            {isShowConnectWallet && <ConnectWalletModal {...props} onClose={() => setisShowConnectWallet(false)}></ConnectWalletModal>}
         </Wrapper>
     )
 }

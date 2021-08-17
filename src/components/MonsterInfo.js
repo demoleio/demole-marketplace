@@ -6,6 +6,8 @@ import VectorDown from '../assests/img/VectorDown.png'
 import { useState } from "react";
 import Table from "./Table";
 import Card from "./Card";
+import BuyMonsterModal from "./BuyMonsterModal";
+import MakeOfferModal from "./MakeOfferModal";
 
 const Wrapper = styled.div`
     min-height: 100vh;
@@ -275,11 +277,14 @@ export default function MonsterInfo() {
         },
     ]
 
+    const [isShowBuyMonster, setisShowBuyMonster] = useState(false)
+    const [isShowMakeOffer, setisShowMakeOffer] = useState(false)
+
     return (
         <Wrapper>
             <WrapperBtn>
-                <ButtonOffer>Make offer</ButtonOffer>
-                <ButtonBuy>Buy Now</ButtonBuy>
+                <ButtonOffer onClick={() => setisShowMakeOffer(true)}>Make offer</ButtonOffer>
+                <ButtonBuy onClick={() => setisShowBuyMonster(true)}>Buy Now</ButtonBuy>
             </WrapperBtn>
 
             <AboutCard header="About">
@@ -454,6 +459,9 @@ export default function MonsterInfo() {
                 </div>
 
             </Table>}
+
+            {isShowBuyMonster && <BuyMonsterModal onClose={() => setisShowBuyMonster(false)}></BuyMonsterModal>}
+            {isShowMakeOffer && <MakeOfferModal onClose={() => setisShowMakeOffer(false)}></MakeOfferModal>}
         </Wrapper>
     )
 }
