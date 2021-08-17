@@ -1,10 +1,10 @@
 import IconClose from '../assests/img/close_24px.png'
-import Overlay from "./Overlay";
+import Modal from "./Modal";
 import styled from "styled-components";
 import Character from './Character';
 import Button from "./Button";
 
-const Wrapper = styled(Overlay)`
+const Wrapper = styled(Modal)`
     .buy-monster {
         background-color: #161824;
         width: 367px;

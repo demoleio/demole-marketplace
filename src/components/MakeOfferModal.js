@@ -1,11 +1,11 @@
 import IconClose from '../assests/img/close_24px.png'
-import Overlay from "./Overlay";
+import Modal from "./Modal";
 import styled from "styled-components";
 import Button from "./Button";
 import Character from './Character';
 import Input from "./Input"
 
-const Wrapper = styled(Overlay)`
+const Wrapper = styled(Modal)`
     .make-offer {
         background-color: #161824;
         width: 755px;

@@ -3,10 +3,10 @@ import Metamask from '../assests/img/icon_metamask.png'
 import Trustwallet from '../assests/img/icon_trustwallet.png'
 import WalletConnect from '../assests/img/icon_walletconnect.svg'
 import IconClose from '../assests/img/close_24px.png'
-import Overlay from "./Overlay";
+import Modal from "./Modal";
 import styled from "styled-components";
 
-const Wrapper = styled(Overlay)`
+const Wrapper = styled(Modal)`
     .connect-wallet {
         overflow: hidden;
         background-color: #161824;

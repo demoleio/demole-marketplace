@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Overlay = styled.div`
+const Modal = styled.div`
     @keyframes OpacityKeyframes {
         0% {
             opacity: 0;
@@ -15,19 +15,19 @@ const Overlay = styled.div`
     z-index: 10;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     left: 0px;
     top: 0px;
     animation: OpacityKeyframes 0.3s ease forwards;
     .wrapper {
         width: 100%;
         height: 100%;
-        position: relative;
 
         .dark-range {
             width: 100%;
             position: absolute;
             height: 100%;
+            top: 0px;
         }
 
         .head {
@@ -48,4 +48,4 @@ const Overlay = styled.div`
        
     }
 `
-export default Overlay
+export default Modal
