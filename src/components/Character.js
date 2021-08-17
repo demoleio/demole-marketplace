@@ -14,6 +14,11 @@ const Wrapper = styled.section`
         box-shadow: 0px 0px 2px 6px #1A1E30;
         background-color: #1A1E30;
     }
+
+    @media only screen and (max-width: 768px) {
+        height: 168px;
+        overflow: hidden;
+    }
 `;
 
 const Head = styled.div`
@@ -50,10 +55,30 @@ const Head = styled.div`
             font-family: "EvilEmpire";
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        padding: 5px 20px;
+        & > p:first-child {
+            font-size: 12px;
+        }
+
+        & > p:last-child {
+            font-size: 48px;
+            line-height: 55px;
+            & > span {
+                top: 8px;
+                left: 30px;
+                font-size: 32px;
+                line-height: 37px;
+               
+            }
+        }
+    }
+
 `
 
 const Monster = styled.div`
-    background-image: radial-gradient(46.9% 46.9% at 49.88% 50.12%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 97.22%);
+    background-image: radial-gradient(46.9% 46.9% at 49.88% 50.12%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 107.22%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,6 +91,23 @@ const Monster = styled.div`
     & > .dragon {
         margin-left: 70px;
         margin-top: 30px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        width:  158px;
+        height: 158px;
+        margin: 0px;
+        margin-top: -42px;
+        /* margin-left: -13px; */
+
+        background: radial-gradient(46.9% 46.9% at 49.88% 50.12%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.25) 0.01%, rgba(255, 255, 255, 0) 107.22%);
+
+        & > .dragon {
+            /* width:  127px; */
+            height: 89px;
+            margin-left: 35px;
+            margin-top: 5px;
+        }
     }
 `
 
@@ -81,6 +123,28 @@ const Price = styled.div`
         font-size: 18px;
     }
 
+    @media only screen and (max-width: 768px) {
+        text-align: left;
+        margin-right: 40px;
+        margin-top: 10px;
+
+        & > p:first-child {
+            font-size: 20px;
+        }
+
+        & > p:last-child {
+            font-size: 16px;
+        }
+    }
+
+`
+
+const WrapperInfoMobile = styled.div`
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
 `
 
 export default function Character(props) {
@@ -93,14 +157,16 @@ export default function Character(props) {
                     <p>TREEMAN <span>TREEMAN</span></p>
                 </Head>
 
-                <Monster  {...props}>
-                    <img className="dragon" src={dragon} alt="photos"></img>
-                </Monster>
+                <WrapperInfoMobile>
+                    <Monster  {...props}>
+                        <img className="dragon" src={dragon} alt="photos"></img>
+                    </Monster>
 
-                {!props.notShowPrice && <Price>
-                    <p>0.927 BNB</p>
-                    <p>$258.97</p>
-                </Price>}
+                    {!props.notShowPrice && <Price>
+                        <p>0.927 BNB</p>
+                        <p>$258.97</p>
+                    </Price>}
+                </WrapperInfoMobile>
             </Link>
         </Wrapper>
     )

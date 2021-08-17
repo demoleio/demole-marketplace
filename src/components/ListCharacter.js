@@ -8,10 +8,9 @@ import Select from "./Select";
 
 const Wrapper = styled.section`
     margin-top: 45px;
-
-    & > .Pagination {
-        padding: 0 280px;
-        margin: 45px 0;
+    @media only screen and (max-width: 768px) {
+        margin-top: 0px;
+        margin-bottom: 35px;
     }
 `;
 
@@ -33,8 +32,28 @@ const Head = styled.div`
             }
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
+
+const WrapperSelect = styled.div`
+    display: none;
+
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 19px;
+
+        & > .react-select-custom {
+            width: 47%;
+            margin-bottom: 41px;
+        }
+    }
+`
 
 
 
@@ -43,28 +62,31 @@ function ListCharacter() {
         <Wrapper>
             <Head>
                 <p>28.975.019 Monsters</p>
-
                 <div>
                     <Checkbox label="Your offer" id="Offer" />
                     <Checkbox label="Owned" id="Owned" />
                     <Select />
                 </div>
-
             </Head>
 
+            <WrapperSelect>
+                <Select />
+                <Select />
+            </WrapperSelect>
+
             <Row>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
-                <Col md={4} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+                <Col lg={4} md={6} xs={12}><Character></Character></Col>
             </Row>
 
             <Pagination></Pagination>

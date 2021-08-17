@@ -28,10 +28,10 @@ function Home() {
             <ContainerStyled>
                 <MarketInfo />
                 <Row>
-                    <Col md={3} xs={12}>
-                        <FilterPanel />
+                    <Col lg={3} md={12}>
+                        <FilterPanel/>
                     </Col>
-                    <Col md={9} xs={12}>
+                    <Col lg={9} md={12}>
                         <ListCharacter></ListCharacter>
                     </Col>
                 </Row>

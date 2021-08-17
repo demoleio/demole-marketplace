@@ -25,6 +25,21 @@ const Wrapper = styled(Modal)`
         }
         
     }
+
+    @media only screen and (max-width: 768px) {
+        .make-offer {
+            width: 367px;
+        }
+       
+    }
+
+    @media only screen and (max-width: 576px) {
+        .make-offer {
+            width: calc(100% - 20px);
+            margin: 10vh auto 0px;
+            padding: 20px;
+        }
+    }
 `;
 
 const Price = styled.div`
@@ -55,6 +70,11 @@ const Price = styled.div`
             line-height: 26px;
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        padding-bottom: 10px;
+        margin-top: 10px;
+    }
 `
 
 const ButtonOffer = styled(Button)`
@@ -63,6 +83,10 @@ const ButtonOffer = styled(Button)`
     font-size: 16px;
     width: 312px;
     margin: 0;
+
+    @media only screen and (max-width: 768px) {
+        width: auto;
+    }
 `;
 
 const ButtonCancel = styled(Button)`
@@ -73,6 +97,10 @@ const ButtonCancel = styled(Button)`
     border: 1px solid #00CEFF;
     width: 146px;
 
+    @media only screen and (max-width: 768px) {
+        width: auto;
+    }
+
 `
 
 const WrapperBtn = styled.div`
@@ -82,6 +110,11 @@ const WrapperBtn = styled.div`
     padding-top: 27px;
     border-top: 1px solid #292F49;
     margin-top: 27px;
+
+    @media only screen and (max-width: 768px) {
+        padding-top: 10px;
+        margin-top: 10px;
+    }
 `
 
 const WrapperInfo = styled.div`
@@ -96,6 +129,18 @@ const WrapperInfo = styled.div`
     & > div {
         width: 312px;
     }
+
+    @media only screen and (max-width: 768px) {
+        display: block;
+
+        & > .Character {
+            width: 100%;
+        }
+        
+        & > div {
+            width: 100%;
+        }
+    }
   
 `
 
@@ -106,6 +151,10 @@ const WrapperInput = styled.div`
         font-weight: bold;
         font-size: 18px;
         margin-bottom: 8px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 10px;
     }
 `
 

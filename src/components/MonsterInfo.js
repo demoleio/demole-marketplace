@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Button from "./Button";
 import Battle from '../assests/img/battle.png'
 import Lighting from '../assests/img/lighting.png'
 import VectorDown from '../assests/img/VectorDown.png'
@@ -11,23 +10,12 @@ import MakeOfferModal from "./MakeOfferModal";
 
 const Wrapper = styled.div`
     min-height: 100vh;
-    padding: 90px 10px;
-`;
+    padding: 52px 10px;
 
-const ButtonOffer = styled(Button)`
-    background: transparent;
-    color: #00CEFF;
-    font-size: 20px;
-    font-weight: bold;
-    border: 1px solid #00CEFF;
-`;
-
-const ButtonBuy = styled(Button)`
-    background: #00CEFF;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 28px;
+    @media only screen and (max-width: 768px) {
+        min-height: fit-content;
+        padding: 52px 10px;
+    }
 `;
 
 const AboutCard = styled(Card)`
@@ -55,6 +43,26 @@ const AboutCard = styled(Card)`
         &:last-child {
             width: 100%;
             margin-bottom: 0;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        padding: 24px;
+
+        & > div {
+            margin-bottom: 0;
+
+            span {
+                font-size: 12px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            &:last-child{
+                display: none;
+            }
         }
     }
 `
@@ -93,6 +101,15 @@ const StatsCard = styled(Card)`
             margin-bottom: 0;
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        & > div {
+            margin-bottom: 25px;
+            & > span {
+                font-size: 12px;
+            }
+        }
+    }
 `
 
 const BodyCard = styled(Card)`
@@ -104,8 +121,8 @@ const BodyCard = styled(Card)`
     & > div {
         display: flex;
         align-items: center;
-        width: 200px;
-        margin: 32px 90px 0 0;
+        width: calc(50% - 6px);
+        margin: 32px 12px 0 0;
         .hinhtron {
             width: 60px;
             height: 60px;
@@ -131,11 +148,28 @@ const BodyCard = styled(Card)`
             margin-right: 0;
         }
     }
-`
 
-const WrapperBtn = styled.div`
-    text-align: right;
-    margin-bottom: 32px;
+    @media only screen and (max-width: 768px) {
+        padding: 0 20px 20px 20px;
+        & > div {
+            margin-top: 20px;
+            .hinhtron {
+                width: 36px;
+                height: 36px;
+                margin-right: 8px;
+            }
+            .info{
+                p {
+                    font-size: 12px;
+                }
+
+                span {
+                    font-size: 12px;
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
 `
 
 const Tab = styled.div`
@@ -156,6 +190,15 @@ const Tab = styled.div`
     .selected {
         color: #FFB337;
         border-bottom: 3px solid #FFB337;
+    }
+
+    @media only screen and (max-width: 768px) {
+        margin-top: 0px;
+        & > p {
+            width: 171px;
+            font-size: 24px;
+            line-height: 28px;
+        }
     }
 `
 export default function MonsterInfo() {
@@ -282,15 +325,15 @@ export default function MonsterInfo() {
 
     return (
         <Wrapper>
-            <WrapperBtn>
+            {/* <WrapperBtn>
                 <ButtonOffer onClick={() => setisShowMakeOffer(true)}>Make offer</ButtonOffer>
                 <ButtonBuy onClick={() => setisShowBuyMonster(true)}>Buy Now</ButtonBuy>
-            </WrapperBtn>
+            </WrapperBtn> */}
 
             <AboutCard header="About">
                 <div>
                     <span>Tribes</span>
-                    <p>Knight Blaa</p>
+                    <p>Knight</p>
                 </div>
                 <div>
                     <span>Level</span>
@@ -306,7 +349,7 @@ export default function MonsterInfo() {
                 </div>
             </AboutCard>
 
-            <StatsCard header="About" headerRight="Detail">
+            <StatsCard header="Stats (28)" headerRight="Detail">
                 <div>
                     <span>Attack</span>
                     <div>
@@ -397,65 +440,69 @@ export default function MonsterInfo() {
             </Tab>
 
             {showOfferTable && <Table>
-                <div className="table-title">
-                    <div>
-                        <p>From</p>
-                        <img src={VectorDown} alt="photos"></img>
+                <div className="wrapper-table" style={{minWidth: 500}}>
+                    <div className="table-title">
+                        <div>
+                            <p>From</p>
+                            <img src={VectorDown} alt="photos"></img>
+                        </div>
+                        <div>
+                            <p>Price</p>
+                            <img src={VectorDown} alt="photos"></img>
+                        </div>
+                        <div>
+                            <p>Time</p>
+                            <img src={VectorDown} alt="photos"></img>
+                        </div>
                     </div>
-                    <div>
-                        <p>Price</p>
-                        <img src={VectorDown} alt="photos"></img>
-                    </div>
-                    <div>
-                        <p>Time</p>
-                        <img src={VectorDown} alt="photos"></img>
-                    </div>
-                </div>
 
-                <div className="table-item">
-                    {tableOfferItems.map((value, index) => {
-                        return (
-                            <div key={index} className={`${index % 2 === 0 ? "row-even" : ""} table-row`}>
-                                <a href="/">{value.address}</a>
-                                <p>{value.price}</p>
-                                <p>{value.time}</p>
-                            </div>
-                        )
-                    })}
+                    <div className="table-item">
+                        {tableOfferItems.map((value, index) => {
+                            return (
+                                <div key={index} className={`${index % 2 === 0 ? "row-even" : ""} table-row`}>
+                                    <a href="/">{value.address}</a>
+                                    <p>{value.price}</p>
+                                    <p>{value.time}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </Table>}
 
 
             {!showOfferTable && <Table>
-                <div className="table-title">
-                    <div>
-                        <p>From</p>
-                        <img src={VectorDown} alt="photos"></img>
+                <div className="wrapper-table" style={{minWidth: 600}}>
+                    <div className="table-title">
+                        <div>
+                            <p>From</p>
+                            <img src={VectorDown} alt="photos"></img>
+                        </div>
+                        <div style={{ flex: 2 }}>
+                            <p>To</p>
+                            <img src={VectorDown} alt="photos"></img>
+                        </div>
+                        <div>
+                            <p>Price</p>
+                            <img src={VectorDown} alt="photos"></img>
+                        </div>
+                        <div>
+                            <p>Time</p>
+                            <img src={VectorDown} alt="photos"></img>
+                        </div>
                     </div>
-                    <div style={{ flex: 2 }}>
-                        <p>To</p>
-                        <img src={VectorDown} alt="photos"></img>
+                    <div className="table-item">
+                        {tableHistoryItems.map((value, index) => {
+                            return (
+                                <div key={index} className={`${index % 2 === 0 ? "row-even" : ""} table-row`}>
+                                    <a href="/">{value.address}</a>
+                                    <a href="/">{value.to}</a>
+                                    <p>{value.price}</p>
+                                    <p>{value.time}</p>
+                                </div>
+                            )
+                        })}
                     </div>
-                    <div>
-                        <p>Price</p>
-                        <img src={VectorDown} alt="photos"></img>
-                    </div>
-                    <div>
-                        <p>Time</p>
-                        <img src={VectorDown} alt="photos"></img>
-                    </div>
-                </div>
-                <div className="table-item">
-                    {tableHistoryItems.map((value, index) => {
-                        return (
-                            <div key={index} className={`${index % 2 === 0 ? "row-even" : ""} table-row`}>
-                                <a href="/">{value.address}</a>
-                                <a href="/">{value.to}</a>
-                                <p>{value.price}</p>
-                                <p>{value.time}</p>
-                            </div>
-                        )
-                    })}
                 </div>
 
             </Table>}

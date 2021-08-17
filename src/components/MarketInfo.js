@@ -4,6 +4,10 @@ const Wrapper = styled.div`
     width: 80%;
     margin: auto;
     margin-top: 45px;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 const Line = styled.div`
@@ -15,6 +19,16 @@ const Info = styled.ul`
     margin: 50px auto;
     display: flex;
     justify-content: space-evenly;
+
+    
+    @media only screen and (max-width: 576px) {
+        flex-wrap: wrap;
+        margin: 15px auto;
+
+        & > .list-inline-item:last-child {
+            margin-top: 39px;
+        }
+    }
 `;
 
 const InfoItem = styled.li`
@@ -28,6 +42,18 @@ const InfoItem = styled.li`
     & > .value {
         font-weight: bold;
         font-size: 40px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        margin-right: 20px;
+        & > .title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        & > .value {
+            font-size: 20px;
+        }
     }
 `;
 

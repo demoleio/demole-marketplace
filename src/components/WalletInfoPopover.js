@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     top: 60px;
     right: 0px;
     width: 344px;
+    z-index: 2;
 
     
     & > p {
@@ -61,7 +62,7 @@ const Menu = styled.ul`
 
 export default function WalletInfoPopover() {
     return (
-        <Wrapper>
+        <Wrapper className="WalletInfoPopover">
             <Head>
                 <img src={Avatar} alt="photos"></img>
                 <div>

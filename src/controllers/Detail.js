@@ -4,6 +4,10 @@ import Footer from "../components/Footer";
 import { Container, Row, Col } from "react-bootstrap";
 import MonsterImage from "../components/MonsterImage";
 import MonsterInfo from "../components/MonsterInfo";
+import Button from "../components/Button";
+import { useState } from "react";
+import BuyMonsterModal from "../components/BuyMonsterModal";
+import MakeOfferModal from "../components/MakeOfferModal";
 
 const Wrapper = styled.section`
     background-color: #0F1323;
@@ -18,11 +22,59 @@ const ContainerStyled = styled(Container)`
     }
 `;
 
+const WrapperBtn = styled.div`
+    float: right;
+    text-align: right;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 50px;
+
+`
+
+const ButtonOffer = styled(Button)`
+    background: transparent;
+    color: #00CEFF;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid #00CEFF;
+
+    @media only screen and (max-width: 768px) {
+        font-weight: 600;
+        font-size: 12px;
+    }
+`;
+
+const ButtonBuy = styled(Button)`
+    background: #00CEFF;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 28px;
+
+    @media only screen and (max-width: 768px) {
+        font-weight: 600;
+        font-size: 12px;
+        margin-left: 16px;
+    }
+`;
+
 export default function MonsterDetail() {
+
+    const [isShowBuyMonster, setisShowBuyMonster] = useState(false)
+    const [isShowMakeOffer, setisShowMakeOffer] = useState(false)
+
+
     return (
         <Wrapper>
             <Header />
             <ContainerStyled>
+                <WrapperBtn>
+                    <ButtonOffer onClick={() => setisShowMakeOffer(true)}>Make offer</ButtonOffer>
+                    <ButtonBuy onClick={() => setisShowBuyMonster(true)}>Buy Now</ButtonBuy>
+                </WrapperBtn>
+                <div style={{ clear: "both" }}></div>
                 <Row>
                     <Col md={6} xs={12}>
                         <MonsterImage></MonsterImage>
@@ -33,6 +85,9 @@ export default function MonsterDetail() {
                 </Row>
             </ContainerStyled>
             <Footer></Footer>
+
+            {isShowBuyMonster && <BuyMonsterModal onClose={() => setisShowBuyMonster(false)}></BuyMonsterModal>}
+            {isShowMakeOffer && <MakeOfferModal onClose={() => setisShowMakeOffer(false)}></MakeOfferModal>}
         </Wrapper>
     )
 }

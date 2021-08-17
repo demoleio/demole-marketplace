@@ -7,6 +7,8 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 432px;
+    margin: 45px auto;
 
     & > img {
         cursor: pointer;
@@ -35,11 +37,15 @@ const Wrapper = styled.section`
         border-radius: 50%;
         color: white;
     }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export default function Pagination() {
     return (
-        <Wrapper className="Pagination">
+        <Wrapper>
             <img src={ArrowLeft} alt="photos"></img>
             <p className="selected">1</p>
             <p>2</p>

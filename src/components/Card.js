@@ -8,6 +8,10 @@ const CardWrapper = styled.div`
     border-radius: 12px;
     padding: 24px;
     margin-bottom: 60px;
+
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 36px;
+    }
 `;
 
 const CardHeader = styled.div`
@@ -23,6 +27,16 @@ const CardHeader = styled.div`
     & > span {
         font-size: 18px;
         color: #00CEFF;
+    }
+
+    @media only screen and (max-width: 768px) {
+        & > p {
+            font-size: 24px;
+        }
+
+        & > span {
+            font-size: 16px;
+        }
     }
   
 `;

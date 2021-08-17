@@ -22,6 +22,13 @@ const Content = styled.div`
     display: flex;
     align-items: flex-start;
     padding: 80px 30px;
+
+    @media only screen and (max-width: 768px) {
+        display: block;
+        padding: 0;
+        text-align: center;
+    }
+
 `
 
 const Title = styled.div`
@@ -38,6 +45,24 @@ const Title = styled.div`
         font-size: 20px;
         line-height: 28px;
         font-weight: bold;
+    }
+
+    @media only screen and (max-width: 768px) {
+        display: block;
+        margin: 0;
+        text-align: center;
+        margin-top: 36px;
+        & > p {
+            font-size: 36px;
+            line-height: 41px;
+        }
+
+        & > span {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 24px;
+        }
+
     }
 `
 
@@ -58,6 +83,7 @@ const Info = styled.div`
 
             img {
                 margin-right: 12px;
+                width: 20px;
             }
 
         }
@@ -67,6 +93,44 @@ const Info = styled.div`
         }
     }
 
+    
+    @media only screen and (max-width: 768px) {
+        display: block;
+        margin-top: 36px;
+        & > div {
+            margin: 0;
+            p {
+                font-size: 18px;
+                margin-bottom: 17px;
+            }
+            span {
+                display: none;
+            }
+
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+    }
+
+`
+
+const WrapperIcon = styled.div`
+    display: none;
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        padding-bottom: 65px;
+
+        & > img {
+            margin-right: 24px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
 `
 
 export default function Footer() {
@@ -102,11 +166,15 @@ export default function Footer() {
                             <span><img src={discord} alt="photos"></img>Discord</span>
                         </div>
                     </Info>
+
+                    <WrapperIcon>
+                        <img src={telegram} alt="photos"></img>
+                        <img src={medium} alt="photos"></img>
+                        <img src={twitter} alt="photos"></img>
+                        <img src={discord} alt="photos"></img>
+                    </WrapperIcon>
                 </Content>
-
             </ContainerStyled>
-
-
         </Wrapper>
     )
 }

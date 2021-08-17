@@ -22,6 +22,12 @@ const Wrapper = styled(Modal)`
             margin-bottom: 36px;
         }
     }
+
+    @media only screen and (max-width: 768px) {
+        .connect-wallet {
+            width: calc(100% - 20px);
+        }
+    }
 `;
 
 const Info = styled.div`

@@ -64,7 +64,7 @@ const SelectStyled = styled(ReactSelect)`
 
 export default function Select(props) {
     return (
-        <SelectStyled classNamePrefix="react-select"
+        <SelectStyled classNamePrefix="react-select" className="react-select-custom"
             options={options}
             isSearchable={false}
             value={{ value: 'chocolate', label: 'Chocolate' }}

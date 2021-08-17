@@ -21,7 +21,13 @@ const Wrapper = styled(Modal)`
                 font-size: 24px
             }
         }
-        
+    }
+
+    @media only screen and (max-width: 576px) {
+        .buy-monster {
+            width: calc(100% - 20px);
+            margin: 20vh auto 0px;
+        }
     }
 `;
 
@@ -75,6 +81,9 @@ const ErrorText = styled.p`
 
 export default function BuyMonsterModal(props) {
     const err = 'Insufficient BNB balance'
+    const width = document.body.clientWidth
+    const isMobile = width <= 768 ? true : false
+
     return (
         <Wrapper>
             <div className="wrapper">
@@ -85,15 +94,15 @@ export default function BuyMonsterModal(props) {
                         <img src={IconClose} onClick={props.onClose} alt="icon-close"></img>
                     </div>
 
-                    <Character notShowPrice={true} customHeight="278px"></Character>
+                    <Character notShowPrice={isMobile ? false : true} customHeight="278px"></Character>
 
-                    <Price>
+                    {!isMobile && <Price>
                         <p>Price:</p>
                         <div>
                             <p>0.327 BNB</p>
                             <span>$210.9</span>
                         </div>
-                    </Price>
+                    </Price>}
 
                     {err && <ErrorText>{err}</ErrorText>}
 

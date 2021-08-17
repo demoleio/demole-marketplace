@@ -19,7 +19,7 @@ ReactDOM.render(
 			<Router>
 				<Switch>
 					<Route path="/detail/:id">
-						<Detail />
+						<Detail/>
 					</Route>
 					<Route path="/">
 						<Home />
