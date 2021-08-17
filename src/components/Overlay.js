@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Overlay = styled.div`
- @keyframes overlay {
+    @keyframes OpacityKeyframes {
         0% {
             opacity: 0;
         }
@@ -18,7 +18,7 @@ const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.6);
     left: 0px;
     top: 0px;
-    animation: overlay 0.3s ease forwards;
+    animation: OpacityKeyframes 0.3s ease forwards;
     .wrapper {
         width: 100%;
         height: 100%;

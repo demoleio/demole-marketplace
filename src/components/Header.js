@@ -11,7 +11,7 @@ import SelectChainPopover from "./SelectChainPopover";
 import { useState } from "react";
 import WalletInfoPopover from "./WalletInfoPopover";
 import ConnectWalletModal from "./ConnectWalletModal";
-import WrongNetworkModal from "./WrongNetworkModal";
+// import WrongNetworkModal from "./WrongNetworkModal";
 
 
 const Wrapper = styled.header`
