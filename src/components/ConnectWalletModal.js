@@ -23,7 +23,7 @@ const Wrapper = styled(Modal)`
         }
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 576px) {
         .connect-wallet {
             width: calc(100% - 20px);
         }
