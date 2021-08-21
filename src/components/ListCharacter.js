@@ -1,10 +1,10 @@
 
-import { Col, Row } from "react-bootstrap";
 import styled from "styled-components";
 import Character from "./Character";
 import Checkbox from "./Checkbox";
 import Pagination from "./Pagination";
 import Select from "./Select";
+import { Row, Col } from 'antd';
 
 const Wrapper = styled.section`
     margin-top: 45px;
@@ -25,9 +25,9 @@ const Head = styled.div`
     & > div {
         display: flex;
         align-items: center;
-        .form-check {
+        .ant-checkbox-wrapper {
             margin-right: 31px;
-            .form-check-label {
+            & > span {
                 font-size: 16px;
             }
         }
@@ -48,7 +48,7 @@ const WrapperSelect = styled.div`
         align-items: center;
         margin-top: 19px;
 
-        & > .react-select-custom {
+        & > .ant-select {
             width: 47%;
             margin-bottom: 41px;
         }
@@ -63,8 +63,8 @@ function ListCharacter() {
             <Head>
                 <p>28.975.019 Monsters</p>
                 <div>
-                    <Checkbox label="Your offer" id="Offer" />
-                    <Checkbox label="Owned" id="Owned" />
+                    <Checkbox id="Offer">Your offer</Checkbox>
+                    <Checkbox id="Owned">Owned</Checkbox>
                     <Select />
                 </div>
             </Head>
@@ -74,19 +74,19 @@ function ListCharacter() {
                 <Select />
             </WrapperSelect>
 
-            <Row>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
-                <Col lg={4} md={6} xs={12}><Character></Character></Col>
+            <Row gutter={24}>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
+                <Col lg={8} md={12} xs={24}><Character></Character></Col>
             </Row>
 
             <Pagination></Pagination>

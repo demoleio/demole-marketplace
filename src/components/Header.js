@@ -1,4 +1,3 @@
-import { Container, Nav, NavItem } from "react-bootstrap"
 import HeaderBackground from "../assests/img/header-background.png"
 import LogoImg from "../assests/img/logo.png"
 import styled from "styled-components"
@@ -13,6 +12,8 @@ import WalletInfoPopover from "./WalletInfoPopover";
 import ConnectWalletModal from "./ConnectWalletModal";
 import MenuMobile from '../assests/img/menu_mobile.png'
 import IconClose from '../assests/img/close_24px.png'
+import ContainerStyled from "./ContainerStyled";
+import { Menu } from 'antd';
 
 const Wrapper = styled.header`
     background-image: ${props => props.isHome ? `url(${HeaderBackground})` : ""};
@@ -27,37 +28,16 @@ const Wrapper = styled.header`
     }
 `;
 
-const ContainerStyled = styled(Container)`
-    @media (min-width: 1288px) {
-        width: 1288px;
-    }
-`;
-
 const Logo = styled.img`
     height: 70px;
 `;
 
-const Menu = styled.div`
+const Menuu = styled.div`
     padding-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     @media only screen and (max-width: 768px) {
-        & > .nav {
-            position: fixed;
-			width: 50%;
-			height: 100vh;
-			background-color: #1A1E30;
-			display: block;
-			top: 100px;
-			right: 0;
-			margin-right: -60%;
-			transition: all 0.3s ease-out;
-			padding-left: 20px;
-			padding-top: 20px;
-        }
-
         & > .is-toggle {
 			margin-right: 0px;
 			z-index: 50;
@@ -65,21 +45,46 @@ const Menu = styled.div`
     }
 `;
 
-const NavItemStyled = styled(NavItem)`
-    margin-right: 60px;
+const Nav = styled(Menu)`
+    background-color: transparent;
+    border: none;
+    display: flex;
+    .ant-menu-item-selected {
+        background-color: transparent !important;
+    }
+
+    @media only screen and (max-width: 768px) {
+        position: fixed;
+        width: 50%;
+        height: 100vh;
+        background-color: #1A1E30;
+        display: block;
+        top: 100px;
+        right: 0;
+        margin-right: -60%;
+        transition: all 0.3s ease-out;
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+`
+
+const NavItemStyled = styled(Menu.Item)`
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-right: 60px !important;
 
     &:last-child {
         margin-right: 0;
     }
 
-    & > a {
+    a {
         text-decoration: none;
         font-size: 20px;
         font-weight: 700;
         color: white;
     }
 
-    & > a:hover {
+    a:hover {
         color: #FFB337;
     }
 
@@ -125,6 +130,7 @@ const Description = styled.p`
     @media only screen and (max-width: 768px) {
         font-size: 16px;
         line-height: 24px;
+        padding: 0 10px;
     }
 `;
 
@@ -152,6 +158,7 @@ const ConnectWalletWrapper = styled.div`
     }
 
     @media only screen and (max-width: 768px) {
+        padding-right: 10px;
         & > img {
             display: block;
             margin-left: 12px;
@@ -225,14 +232,14 @@ function Header(props) {
     return (
         <Wrapper isHome={location.pathname === "/"}>
             <ContainerStyled>
-                <Menu>
+                <Menuu>
                     <Link to="/"><Logo src={LogoImg} /></Link>
                     <Nav className={`nav ${toggleMenu ? 'is-toggle' : ''}`}>
-                        <NavItemStyled><Link to="/">Marketplace</Link></NavItemStyled>
-                        <NavItemStyled><a href="https://stake.demole.io" target="_blank" rel="noreferrer">Stake</a></NavItemStyled>
-                        <NavItemStyled><a href="https://summon.demole.io" target="_blank" rel="noreferrer">Summon</a></NavItemStyled>
-                        <NavItemStyled><a href="https://demole.io/faq" target="_blank" rel="noreferrer">FAQ</a></NavItemStyled>
-                        <NavItemStyled><a href="https://demole.io" target="_blank" rel="noreferrer">Community</a></NavItemStyled>
+                        <NavItemStyled key="1"><Link to="/">Marketplace</Link></NavItemStyled>
+                        <NavItemStyled key="2"><a href="https://stake.demole.io" target="_blank" rel="noreferrer">Stake</a></NavItemStyled>
+                        <NavItemStyled key="3"><a href="https://summon.demole.io" target="_blank" rel="noreferrer">Summon</a></NavItemStyled>
+                        <NavItemStyled key="4"><a href="https://demole.io/faq" target="_blank" rel="noreferrer">FAQ</a></NavItemStyled>
+                        <NavItemStyled key="5"><a href="https://demole.io" target="_blank" rel="noreferrer">Community</a></NavItemStyled>
                     </Nav>
 
                     <ConnectWalletWrapper>
@@ -258,7 +265,7 @@ function Header(props) {
                         {toggleMenu && <OverlayMobile></OverlayMobile>}
                     </ConnectWalletWrapper>
 
-                </Menu>
+                </Menuu>
 
                 {location.pathname === "/" && <Description>Welcome to “The Unicorn’s Horn market”, you can find the best things to prepare for you next hunting trip.</Description>}
             </ContainerStyled>

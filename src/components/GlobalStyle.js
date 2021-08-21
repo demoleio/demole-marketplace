@@ -10,6 +10,10 @@ export default createGlobalStyle`
         font-style: normal; */
     }
 
+    .ant-row {
+        margin: 0 !important;
+    }
+
     p {
         margin-bottom: 0;
     }

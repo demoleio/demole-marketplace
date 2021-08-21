@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     right: -40px;
 
     width: 218px;
+    z-index: 2;
 
     & > div {
         display: flex;

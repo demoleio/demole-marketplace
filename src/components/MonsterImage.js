@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     @media only screen and (max-width: 768px) {
         position: initial;
         min-height: fit-content;
+        padding: 0 10px;
     }
 `;
 

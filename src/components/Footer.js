@@ -3,19 +3,13 @@ import telegram from '../assests/img/telegram.png'
 import medium from '../assests/img/medium.png'
 import twitter from '../assests/img/twitter.png'
 import discord from '../assests/img/discord.png'
-import { Container } from "react-bootstrap";
+import ContainerStyled from "./ContainerStyled";
 
 const Wrapper = styled.footer`
     border-top: 1px solid #292F49;
     position: relative;
     z-index: 3;
     background-color: #0F1323;
-`;
-
-const ContainerStyled = styled(Container)`
-    @media (min-width: 1288px) {
-        width: 1288px;
-    }
 `;
 
 const Content = styled.div`

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './controllers/Home';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastProvider } from 'react-toast-notifications';
 import {
 	BrowserRouter as Router,
@@ -9,6 +8,7 @@ import {
 	Route,
 } from "react-router-dom";
 import "nouislider/distribute/nouislider.css";
+import 'antd/dist/antd.css';
 import GlobalStyle from "./components/GlobalStyle"
 import Detail from './controllers/Detail';
 

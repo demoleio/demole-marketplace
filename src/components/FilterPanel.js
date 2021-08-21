@@ -6,6 +6,7 @@ import Range from "./Range";
 import Button from "./Button";
 import { useState } from "react";
 import VectorDown from '../assests/img/VectorDown.png'
+import { Slider } from 'antd';
 
 const Wrapper = styled.div`
     background: #1A1E30;
@@ -15,6 +16,24 @@ const Wrapper = styled.div`
 
     & > div:last-child {
         border-bottom: 0px;
+    }
+    
+    .ant-slider:hover .ant-slider-rail {
+        background-color: black;
+    }
+
+    .ant-slider-rail {
+        background-color: black;
+    }
+
+    .ant-slider-dot {
+        background-color: black;
+        border-color: black;
+    }
+
+    .ant-slider-dot-active {
+        background-color: #00CEFF;
+        border-color: #00CEFF;
     }
 
     @media only screen and (max-width: 768px) {
@@ -59,14 +78,14 @@ const Title = styled.p`
 `;
 
 const TwoCol = styled.div`
-    & > div {
+    & > label {
         margin-top: 15px;
-        display: inline-block;
         width: 50%;
+        margin-left: 0 !important;
     }
 
-    & > div:nth-child(1),
-    & > div:nth-child(2) {
+    & > label:nth-child(1),
+    & > label:nth-child(2) {
         margin-top: 0;
     }
 `;
@@ -79,20 +98,21 @@ const HeadMobile = styled.div`
         justify-content: space-between;
         align-items: center;
         margin-top: 38px;
+        width: 100%;
         & > p {
             font-size: 18px;
         }
 
-        & > div {
+        /* & > div {
             display: flex;
             align-items: center;
-            .form-check {
+            .ant-checkbox-wrapper {
                 margin-right: 31px;
-                .form-check-label {
+                & > span {
                     font-size: 16px;
                 }
             }
-        }
+        } */
     }
 `;
 
@@ -112,9 +132,35 @@ const FiltersBtn = styled(Button)`
     }
 `
 
+const TextLevel = styled.p`
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+`
+
 
 function FilterPanel() {
     const [isShow, setisShow] = useState(false)
+    const marks = {
+        0: {
+            label: <TextLevel>Any</TextLevel>,
+        },
+        1: {
+            label: <TextLevel>1</TextLevel>,
+        },
+        2: {
+            label: <TextLevel>2</TextLevel>,
+        },
+        3: {
+            label: <TextLevel>3</TextLevel>,
+        },
+        4: {
+            label: <TextLevel>4</TextLevel>,
+        },
+        5: {
+            label: <TextLevel>5</TextLevel>,
+        },
+    };
     return (
         <>
             <HeadMobile>
@@ -136,11 +182,11 @@ function FilterPanel() {
                 <Item>
                     <Title>TRIBES</Title>
                     <TwoCol>
-                        <Checkbox label="Treeman" id="Treeman" />
-                        <Checkbox label="Angle" id="Angle" />
-                        <Checkbox label="Merman" id="Merman" />
-                        <Checkbox label="Shadow" id="Shadow" />
-                        <Checkbox label="Dragon" id="Dragon" checked={true} />
+                        <Checkbox id="Treeman">Treeman</Checkbox>
+                        <Checkbox id="Angle">Angle</Checkbox>
+                        <Checkbox id="Merman">Merman</Checkbox>
+                        <Checkbox id="Shadow">Shadow</Checkbox>
+                        <Checkbox id="Dragon" checked={true}>Dragon</Checkbox>
                     </TwoCol>
                 </Item>
                 <Item>
@@ -148,13 +194,17 @@ function FilterPanel() {
                     <Range prefix="$" range={{ min: 0, max: 30000 }} start={[0, 20000]} step={1} connect={true}></Range>
                 </Item>
                 <Item>
+                    <Title>LEVEL</Title>
+                    <Slider min={0} max={5} trackStyle={{ backgroundColor: '#00CEFF' }} handleStyle={{ backgroundColor: '#00CEFF', width: 12, height: 12, borderColor: '#00CEFF' }} marks={marks} defaultValue={0} />
+                </Item>
+                <Item>
                     <Title>ELEMENT</Title>
                     <TwoCol>
-                        <Checkbox label="Fire" id="Fire" />
-                        <Checkbox label="Light" id="Light" />
-                        <Checkbox label="Water" id="Water" />
-                        <Checkbox label="Dark" id="Dark" />
-                        <Checkbox label="Nature" id="Nature" checked={true} />
+                        <Checkbox id="Fire">Fire</Checkbox>
+                        <Checkbox id="Light">Light</Checkbox>
+                        <Checkbox id="Water">Water</Checkbox>
+                        <Checkbox id="Dark">Dark</Checkbox>
+                        <Checkbox id="Nature" checked={true}>Nature</Checkbox>
                     </TwoCol>
                 </Item>
             </Wrapper>

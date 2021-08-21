@@ -1,74 +1,44 @@
-import ReactSelect from 'react-select'
 import styled from 'styled-components';
+import { Select as SelectAntd } from 'antd';
 
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-]
+const { Option } = SelectAntd;
 
-const SelectStyled = styled(ReactSelect)`
+const SelectStyled = styled(SelectAntd)`
     width: 200px;
-    & .react-select__control {
-		background-color: transparent; /* add custom arrow */
-		border: 1px solid #9298AB;
-        border-radius: 8px;
-        padding: 10px 12px;
-        font-size: 16px;
-    }
-    
-	& .react-select__single-value {
-        color: #9298AB;
-        &:hover {
-            cursor: pointer;
-        }
-	}
-		
-	& .react-select__indicator {
-		padding: 0px;
-    }
 
-	& .react-select__indicator-separator {
-		display: none;
+	svg {
+		fill: #9298AB;
 	}
 
-	& .react-select__value-container {
-		padding: 0px;
-	}
-
-	.react-select__menu {
-		box-shadow: 6px 3px 6px 0 rgba(0, 0, 0, 0.4);
+	&:not(.ant-select-customize-input) .ant-select-selector { 
+		background-color: transparent;
+		border-radius: 8px;
+		font-size: 16px;
 		color: #9298AB;
-        background-color: #0F1323;
-        border: 1px solid #9298AB;
-		.react-select__menu-list {
-			padding: 0;
-			color: #9298AB;
-		}
-		.react-select__option:hover {
-			background-color:#394163;
-			color: #9298AB;
-		}
-		.react-select__option--is-selected {
-			background-color: #292F49;
-			color: #9298AB;
-		}
-
-		.react-select__option--is-focused {
-			background-color:#394163;
-			color: #9298AB;
-		}
+		border: 1px solid #9298AB;
 	}
 `;
 
+const Text = styled.p`
+	color: #9298AB;
+`
+
+const Item = styled(Option)`
+	
+`
 
 export default function Select(props) {
-    return (
-        <SelectStyled classNamePrefix="react-select" className="react-select-custom"
-            options={options}
-            isSearchable={false}
-            value={{ value: 'chocolate', label: 'Chocolate' }}
-        />
-    )
+
+	const Show = () => {
+		document.getElementById('MiamiPlayers').setAttribute('size', 3);
+	}
+
+	return (
+		<SelectStyled id="MiamiPlayers" onclick={() => Show()} defaultValue="lucy" dropdownStyle={{ backgroundColor: '#0F1323', border: '1px solid #9298AB', borderRadius: 8, color: '#9298AB', boxShadow: '6px 3px 6px 0 rgba(0, 0, 0, 0.4)' }} style={{ color: '#9298AB' }}>
+			<Item value="jack"><Text>Jack</Text></Item>
+			<Option value="lucy"><Text>Lucy</Text></Option>
+			<Option value="Yiminghe"><Text>Yiminghe</Text></Option>
+		</SelectStyled>
+	)
 }
 

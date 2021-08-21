@@ -1,25 +1,20 @@
 import Header from "../components/Header";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import { Container, Row, Col } from "react-bootstrap";
 import MonsterImage from "../components/MonsterImage";
 import MonsterInfo from "../components/MonsterInfo";
 import Button from "../components/Button";
 import { useState } from "react";
 import BuyMonsterModal from "../components/BuyMonsterModal";
 import MakeOfferModal from "../components/MakeOfferModal";
+import { Row, Col } from 'antd';
+import ContainerStyled from "../components/ContainerStyled";
 
 const Wrapper = styled.section`
     background-color: #0F1323;
     min-height: 100vh;
     font-family: 'Georama', sans-serif;
     color: white;
-`;
-
-const ContainerStyled = styled(Container)`
-    @media (min-width: 1288px) {
-        width: 1288px;
-    }
 `;
 
 const WrapperBtn = styled.div`
@@ -30,7 +25,8 @@ const WrapperBtn = styled.div`
     align-items: center;
     position: relative;
     top: 50px;
-
+    z-index: 1;
+    right: 10px;
 `
 
 const ButtonOffer = styled(Button)`
@@ -76,10 +72,10 @@ export default function MonsterDetail() {
                 </WrapperBtn>
                 <div style={{ clear: "both" }}></div>
                 <Row>
-                    <Col md={6} xs={12}>
+                    <Col md={12} xs={24}>
                         <MonsterImage></MonsterImage>
                     </Col>
-                    <Col md={6} xs={12}>
+                    <Col md={12} xs={24}>
                         <MonsterInfo></MonsterInfo>
                     </Col>
                 </Row>

@@ -1,10 +1,13 @@
 import Header from "../components/Header";
 import styled from "styled-components";
-import { Container, Row, Col } from "react-bootstrap";
 import MarketInfo from "../components/MarketInfo";
 import FilterPanel from "../components/FilterPanel";
 import ListCharacter from "../components/ListCharacter";
 import Footer from "../components/Footer";
+import { Row, Col } from 'antd';
+import ContainerStyled from "../components/ContainerStyled";
+
+
 // import useWallet from "../hooks/useWallet";
 
 const Wrapper = styled.section`
@@ -14,12 +17,6 @@ const Wrapper = styled.section`
     color: white;
 `;
 
-const ContainerStyled = styled(Container)`
-    @media (min-width: 1288px) {
-        width: 1288px;
-    }
-`;
-
 function Home() {
     // const wallet = useWallet()
     return (
@@ -27,11 +24,11 @@ function Home() {
             <Header />
             <ContainerStyled>
                 <MarketInfo />
-                <Row>
-                    <Col lg={3} md={12}>
-                        <FilterPanel/>
+                <Row gutter={24}>
+                    <Col lg={6} md={24} xs={24}>
+                        <FilterPanel />
                     </Col>
-                    <Col lg={9} md={12}>
+                    <Col lg={18} md={24} xs={24}>
                         <ListCharacter></ListCharacter>
                     </Col>
                 </Row>
