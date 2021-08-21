@@ -4,7 +4,7 @@ const ContainerStyled = styled.div`
     margin: auto;
    
     @media (max-width: 575px) {
-        width: 100%;
+        width: calc(100% - 30px);
     }
 
     @media (min-width: 576px) {
@@ -18,7 +18,6 @@ const ContainerStyled = styled.div`
     @media (min-width: 992px) {
         width: 960px;
     }
-
 
     @media (min-width: 1200px) {
         width: 1140px;
